@@ -17,10 +17,13 @@ export const chatSlice = createSlice({
     saveMessage: (state, action) => {
       state.messages.push(action.payload);
     },
+    refreshStore: (state) => {
+      state.messages = [...state.messages];
+    },
   },
 });
 
-export const { saveMessage } = chatSlice.actions;
+export const { saveMessage, refreshStore } = chatSlice.actions;
 
 export const selectMessages = (state: RootState) => state.chatData.messages;
 
